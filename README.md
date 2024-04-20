@@ -19,4 +19,6 @@ npm install
 #correr proyecto
 npm run dev
 
-
+npm install @fortawesome/fontawesome-free
+npm install @fortawesome/react-fontawesome
+npm install @fortawesome/free-solid-svg-icons
