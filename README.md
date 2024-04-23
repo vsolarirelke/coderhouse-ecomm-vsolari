@@ -56,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://incomparable-kheer-1a8e09.netlify.app){:target="_blank"}
+[![Product Name Screen Shot][product-screenshot]](https://incomparable-kheer-1a8e09.netlify.app)
 
 El siguiente proyecto es un ejemplo de un Ecommerce que muestra categorias, productos, imagenes, adicionalmente  pueden ser incorporados a un carrito de compra.
 
@@ -187,7 +187,7 @@ Link de sitios de utilidad
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/victor-solari-orellana-62a89796
-[product-screenshot]: https://github.com/vsolarirelke/coderhouse-ecomm-vsolari/blob/main/public/images/screenshot.png?raw=true
+[product-screenshot]: https://github.com/vsolarirelke/coderhouse-ecomm-vsolari/blob/main/public/images/screenshot.png?raw=true{:target="_blank"}
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
