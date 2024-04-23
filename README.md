@@ -13,7 +13,7 @@
   <h3 align="center">Ecommerce-ReactJs</h3>
 
   <p align="center">
-    Proyecto coderhouse ReactJS
+    Proyecto ReactJS
     <br />
     Alumno: Victor Solari
     <br />
