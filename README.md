@@ -56,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://incomparable-kheer-1a8e09.netlify.app)
+[![Product Name Screen Shot][product-screenshot]](https://incomparable-kheer-1a8e09.netlify.app){:target="_blank"}
 
 El siguiente proyecto es un ejemplo de un Ecommerce que muestra categorias, productos, imagenes, adicionalmente  pueden ser incorporados a un carrito de compra.
 
