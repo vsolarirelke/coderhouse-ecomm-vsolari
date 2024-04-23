@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/vsolarirelke/coderhouse-ecomm-vsolari">
-    <img src="images/logo_react.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/vsolarirelke/coderhouse-ecomm-vsolari/blob/main/public/images/logo_react.png?raw=true" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Ecommerce-ReactJs</h3>
@@ -145,6 +145,9 @@ A continuación se muestra un ejemplo de como descargar el proyecto e iniciarlo 
 - [ ] Pre-Entrega 2
 - [ ] Entrega Final
 
+Para visualizar el ultimo commit debe ingresar:
+
+Historial de Commits - [commits](https://github.com/vsolarirelke/coderhouse-ecomm-vsolari/commits)
 
 
 <p align="right">(<a href="#readme-top">Ir arriba</a>)</p>
@@ -153,7 +156,7 @@ A continuación se muestra un ejemplo de como descargar el proyecto e iniciarlo 
 <!-- CONTACT -->
 ## Contact
 
-Linkedin - [https://www.linkedin.com/in/victor-solari-orellana-62a89796](Linkedin)
+Linkedin - [Ver Linkedin](https://www.linkedin.com/in/victor-solari-orellana-62a89796)
 
 Enlace Proyecto: [https://github.com/vsolarirelke/coderhouse-ecomm-vsolari](https://github.com/vsolarirelke/coderhouse-ecomm-vsolari)
 
@@ -184,7 +187,7 @@ Link de sitios de utilidad
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/victor-solari-orellana-62a89796
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://github.com/vsolarirelke/coderhouse-ecomm-vsolari/blob/main/public/images/screenshot.png?raw=true
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
