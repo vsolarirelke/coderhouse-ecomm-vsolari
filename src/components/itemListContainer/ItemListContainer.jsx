@@ -1,7 +1,7 @@
 import Products from '../../models/Products';
 import CartProduct from '../cartProduct/CartProduct';
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ( {greeting} ) => {
 
     let style_css = {"marginBottom": "30px",
                      "marginTop": "90px"}
