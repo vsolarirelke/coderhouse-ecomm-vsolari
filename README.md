@@ -153,9 +153,9 @@ A continuación se muestra un ejemplo de como descargar el proyecto e iniciarlo 
 <!-- CONTACT -->
 ## Contact
 
-Linkedin - [https://www.linkedin.com/in/victor-solari-orellana-62a89796](Ver Linkedin)
+Linkedin - [https://www.linkedin.com/in/victor-solari-orellana-62a89796](Linkedin)
 
-Enlace Proyecto: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Enlace Proyecto: [https://github.com/vsolarirelke/coderhouse-ecomm-vsolari](https://github.com/vsolarirelke/coderhouse-ecomm-vsolari)
 
 <p align="right">(<a href="#readme-top">Ir arriba</a>)</p>
 
