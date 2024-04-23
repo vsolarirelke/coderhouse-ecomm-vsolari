@@ -4,7 +4,7 @@ import CartProduct from '../cartProduct/CartProduct';
 const ItemListContainer = ({greeting}) => {
 
     let style_css = {"marginBottom": "30px",
-                     "marginTop": "10px"}
+                     "marginTop": "90px"}
     
     return (
         <main className="item-list-container" style={style_css}>
@@ -14,7 +14,7 @@ const ItemListContainer = ({greeting}) => {
             <div className="container">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 item-list">
                     {Products.map( product => (
-                        <CartProduct id={product.id} image_url={product.image_url} name={product.name}/>
+                        <CartProduct key={`cart_${product.id}`} id={product.id} image_url={product.image_url} name={product.name}/>
                     ))}
                 </div>   
             </div>         

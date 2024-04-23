@@ -22,3 +22,13 @@ npm run dev
 npm install @fortawesome/fontawesome-free
 npm install @fortawesome/react-fontawesome
 npm install @fortawesome/free-solid-svg-icons
+
+
+npm uninstall @fortawesome/fontawesome-free
+npm uninstall @fortawesome/react-fontawesome
+npm uninstall @fortawesome/free-solid-svg-icons
+
+npm install react-icons
+https://react-icons.github.io/
+
+https://incomparable-kheer-1a8e09.netlify.app
