@@ -1,7 +1,26 @@
+import { useEffect, useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget'
-import Categories from '../../models/Categories';
 import svg_logo from './assets/logo_app_store.svg'
+import getCategories from '../../models/Categories';
 const Navbar = () => {
+
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        getCategories()
+            .then(response => {
+                setCategories(response)
+            })
+            .catch(error => {
+                console.log(`Navbar - error: ${error}`)
+                console.error(error)
+            })
+            .finally(() => {
+                console.log("Navbar - finally")
+            })
+    })
+
     return (
         <header>
             <nav className="navbar navbar-expand-lg fixed-top bg-light">
@@ -12,11 +31,11 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        {Categories.map( category => (
+                        {categories.map( category => 
                             <li key={"li_category_"+category.id} className="nav-item">
                                 <a key={"category_"+category.id} className="nav-link active" href="#">{category.name}</a>
                             </li>
-                        ))}
+                        )}
                         </ul>
                     </div>
                     < CartWidget/>

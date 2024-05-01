@@ -1,23 +1,35 @@
-import Products from '../../models/Products';
-import CartProduct from '../cartProduct/CartProduct';
+import { useEffect, useState } from 'react';
+import getProducts from '../../models/Products';
+import ItemList from './ItemList';
+
 
 const ItemListContainer = ( {greeting} ) => {
 
     let style_css = {"marginBottom": "30px",
                      "marginTop": "90px"}
     
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        getProducts()
+            .then(response => {
+                setProducts(response)
+            })
+            .catch(error => {
+                console.log(`ItemListContainer - error: ${error}`)
+                console.error(error)
+            })
+            .finally(() => {
+                console.log("ItemListContainer - finally")
+            })
+    })
+    
     return (
         <main className="item-list-container" style={style_css}>
             <div className="d-flex justify-content-center align-self-center">
                 <h1>{greeting}</h1>
             </div>
-            <div className="container">
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 item-list">
-                    {Products.map( product => (
-                        <CartProduct key={`cart_${product.id}`} id={product.id} image_url={product.image_url} name={product.name}/>
-                    ))}
-                </div>   
-            </div>         
+            <ItemList products={products} />      
         </main>
     )
 }
