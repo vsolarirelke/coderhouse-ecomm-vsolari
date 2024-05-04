@@ -15,6 +15,21 @@ const getProducts = () => {
       });
   }
 
+//Trate todos los productos
+const getProductsByCategory = (idCategory) => {
+    console.log("idCategory***:"+idCategory)
+    return new Promise((resolve, reject) => {
+        //simulamos un retraso de red
+        if(idCategory){
+            setTimeout(() => {
+                resolve(
+                    products.filter(product => product.category_id.toLocaleString() === idCategory.toLocaleString())
+                )
+            }, 2000);
+        };
+      });
+  }
+
 //Trate un producto segun su id
 const getProductById = (idProduct) => {
     console.log("******getProductById******")
@@ -28,7 +43,7 @@ const getProductById = (idProduct) => {
         //simulamos un retraso de red
         if(idProduct){
             setTimeout(() => {
-                resolve(products.find(product => product.id === idProduct))
+                resolve(products.find(product => product.id.toLocaleString() === idProduct.toLocaleString()))
             }, 2000);
         }
     });
@@ -78,4 +93,4 @@ const destroyProductById = (idProduct) => {
 }
   
   
-export { getProducts, getProductById, createProduct, updateProductById, destroyProductById }
+export { getProducts, getProductById, getProductsByCategory, createProduct, updateProductById, destroyProductById }

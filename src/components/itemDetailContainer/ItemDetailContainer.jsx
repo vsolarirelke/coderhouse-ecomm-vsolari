@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getProductById } from '../../services/fetchers/fetchProducts';
 import ItemDetail from '../itemDetail/ItemDetail';
 
@@ -9,10 +10,12 @@ const ItemDetailContainer = () => {
                      "marginTop": "90px"}
     
     const [product, setProduct] = useState([])
+    const {itemId} = useParams()
 
     useEffect(() => {
-        getProductById(2)
+        getProductById(itemId)
             .then(response => {
+                console.log("itemId:"+itemId)
                 console.log("response:"+response)
                 setProduct(response)
             })
@@ -23,7 +26,7 @@ const ItemDetailContainer = () => {
             .finally(() => {
                 console.log("ItemDetailContainer - finally")
             })
-    }, [])
+    }, [itemId])
     
     return (
         <div className="item-detail-container" style={style_css}>

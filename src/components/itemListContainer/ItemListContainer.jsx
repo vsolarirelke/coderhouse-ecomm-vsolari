@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getProducts } from '../../services/fetchers/fetchProducts';
+import { useParams } from 'react-router-dom';
+import { getProducts, getProductsByCategory } from '../../services/fetchers/fetchProducts';
 import ItemList from '../itemList/ItemList';
 
 
@@ -9,9 +10,11 @@ const ItemListContainer = ( {greeting} ) => {
                      "marginTop": "90px"}
     
     const [products, setProducts] = useState([])
+    const {categoryId} = useParams()
 
     useEffect(() => {
-        getProducts()
+        const callMethod = categoryId ?  getProductsByCategory : getProducts
+        callMethod(categoryId)
             .then(response => {
                 setProducts(response)
             })
@@ -22,13 +25,15 @@ const ItemListContainer = ( {greeting} ) => {
             .finally(() => {
                 console.log("ItemListContainer - finally")
             })
-    }, [])
+    }, [categoryId])
     
     return (
         <div className="item-list-container" style={style_css}>
-            <div className="d-flex justify-content-center align-self-center">
-                <h1>{greeting}</h1>
-            </div>
+            {categoryId === null || categoryId === undefined && (
+                <div className="d-flex justify-content-center align-self-center">
+                    <h1>{greeting}</h1>
+                </div>
+            )}
             <ItemList products={products} />      
         </div>
     )

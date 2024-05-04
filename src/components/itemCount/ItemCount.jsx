@@ -20,9 +20,9 @@ const ItemCount = ( {stock, initial, onAdd } ) => {
 
     return (
         <>
-            <div class="row pt-10 justify-content-md-center">
-                <div class="col-md-6 offset-md-4">
-                    <div class="row">
+            <div className="row pt-10 justify-content-md-center">
+                <div className="col-md-6 offset-md-4">
+                    <div className="row">
                         <div className="col-2">
                             <button onClick={decrementQuantity} disabled={ (stock<1) } className="btn-decrement"><FaSquareMinus  /></button>
                         </div>
@@ -35,8 +35,8 @@ const ItemCount = ( {stock, initial, onAdd } ) => {
                     </div>
                 </div>
             </div>
-            <div class="row pt-10 justify-content-md-center">
-                <div class="offset-1 col-3">
+            <div className="row pt-10 justify-content-md-center">
+                <div className="offset-1 col-3">
                     <button className="add-to-cart" onClick={ () => onAdd(quantity)} disabled={ (stock<1) }> Agregar </button>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemCount from '../itemCount/ItemCount';
+import ItemBreadcrumb from '../itemBreadcrumb/ItemBreadcrumb';
 import './ItemDetail.css'
 
 const ItemDetail = ({product}) => {
@@ -9,25 +10,11 @@ const ItemDetail = ({product}) => {
     }
     const imgUrl = new URL(`../item/assets/${product.pictureUrl}`, import.meta.url).href
    
-    // <div className="col">
-        //     <div className="card shadow-sm" style={{width: '18rem'}}> 
-        //         <img src={ imgUrl } className="bd-placeholder-img card-img-top" width={200} height={286} />
-        //         <div className="card-body">
-        //             <h6 className="card-title">******{product.title}</h6>
-        //             <div className="text-center card-price">Precio: $ {product.price}</div>
-        //             <div className="text-center card-stock">Stock disponible: {product.stock}</div>
-        //             <ItemCount initial={product.stock > 0 ? 1 : 0} stock={product.stock} onAdd={(quantity) => console.log("Cantidad agregada", quantity)}/>
-        //             <div className="text-center">
-        //                 <a href="#" className="btn btn-secondary">Comprar</a>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
-
     return (
         
 
         <div className="container">
+            <ItemBreadcrumb category_id={product.category_id} category_name={product.category} product_title={product.title}/>
             <div className="card">
                 <div className="container-fliud">
                     <div className="wrapper row">
