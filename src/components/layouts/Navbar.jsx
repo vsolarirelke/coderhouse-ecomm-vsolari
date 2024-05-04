@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import CartWidget from '../cartWidget/CartWidget'
 import svg_logo from './assets/logo_app_store.svg'
-import getCategories from '../../models/Categories';
+//import getCategories from '../../models/Categories';
+import { getCategories } from '../../services/fetchers/fetchCategories';
 const Navbar = () => {
 
 

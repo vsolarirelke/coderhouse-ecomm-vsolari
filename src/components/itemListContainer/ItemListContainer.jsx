@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import getProducts from '../../models/Products';
-import ItemList from './ItemList';
+import { getProducts } from '../../services/fetchers/fetchProducts';
+import ItemList from '../itemList/ItemList';
 
 
 const ItemListContainer = ( {greeting} ) => {
@@ -22,15 +22,15 @@ const ItemListContainer = ( {greeting} ) => {
             .finally(() => {
                 console.log("ItemListContainer - finally")
             })
-    })
+    }, [])
     
     return (
-        <main className="item-list-container" style={style_css}>
+        <div className="item-list-container" style={style_css}>
             <div className="d-flex justify-content-center align-self-center">
                 <h1>{greeting}</h1>
             </div>
             <ItemList products={products} />      
-        </main>
+        </div>
     )
 }
 

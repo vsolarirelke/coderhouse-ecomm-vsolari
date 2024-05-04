@@ -142,7 +142,13 @@ A continuación se muestra un ejemplo de como descargar el proyecto e iniciarlo 
     - [x] Crear la landing de tu proyecto.
     - [x] Link al último commit de tu repositorio en Github. Debe tener el nombre “PreEntrega1+Apellido”
 
-- [ ] Pre-Entrega 2
+- [x] Pre-Entrega 2
+  - [x] Actividad 2
+    - [x] Crea los componentes Item.js e ItemList.js para mostrar algunos productos en tu ItemListContainer.js. Los ítems deben provenir de un llamado a una promise que los resuelva en tiempo diferido (setTimeout) de 2 segundos, para emular retrasos de red (model/Products.js)
+    - [x] Item.js: Es un componente destinado a mostrar información breve del producto que el user clickeará luego para acceder a los detalles (los desarrollaremos más adelante)
+    - [x] ItemList.js Es un agrupador de un set de componentes Item.js (Deberías incluirlo dentro de ItemListContainer de la primera pre-entrega del Proyecto Final)
+    - [x] Implementa un async mock (promise): Usa un efecto de montaje para poder emitir un llamado asincrónico a un mock (objeto) estático de datos que devuelva un conjunto de item { id, title, description, price, pictureUrl } en dos segundos (setTimeout), para emular retrasos de red.
+
 - [ ] Entrega Final
 
 Para visualizar el ultimo commit debe ingresar:
