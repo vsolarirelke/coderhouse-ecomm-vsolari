@@ -11,7 +11,7 @@ const getProducts = () => {
         //simulamos un retraso de red
         setTimeout(() => {
           resolve(products)
-        }, 2000);
+        }, 5000);
       });
   }
 
@@ -43,9 +43,11 @@ const getProductById = (idProduct) => {
         //simulamos un retraso de red
         if(idProduct){
             setTimeout(() => {
-                resolve(products.find(product => product.id.toLocaleString() === idProduct.toLocaleString()))
+                resolve(
+                    products.find(product => product.id.toLocaleString() === idProduct.toLocaleString())
+                )
             }, 2000);
-        }
+        };
     });
 }
 
