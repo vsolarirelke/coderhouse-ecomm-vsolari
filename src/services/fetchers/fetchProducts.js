@@ -11,7 +11,7 @@ const getProducts = () => {
         //simulamos un retraso de red
         setTimeout(() => {
           resolve(products)
-        }, 5000);
+        }, 2000);
       });
   }
 
