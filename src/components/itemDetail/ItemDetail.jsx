@@ -1,15 +1,32 @@
 import React from 'react';
+import { useState } from 'react'
+import { useContext } from "react";
 import ItemCount from '../itemCount/ItemCount';
 import ItemBreadcrumb from '../itemBreadcrumb/ItemBreadcrumb';
+import { CartContext } from "../../context/CartContext";
 import './ItemDetail.css'
+import ItemFinish from '../itemFinish/itemFinish';
 
 const ItemDetail = ({product}) => {
+
+    const [quantityAdd, setQuantityAdd] = useState(0)
+    const { addProductShoppingCart } = useContext(CartContext)
+
     //Validacion - Solo pintamos si viene product
     if(product.length === 0){
         return null
     }
+    
     const imgUrl = new URL(`../item/assets/${product.pictureUrl}`, import.meta.url).href
-   
+    
+    const addProduct = (quantity) => {
+        const productCart ={ ...product, quantity: quantity, price_sale: quantity*product.price}
+        console.log(productCart)
+        setQuantityAdd(quantity)
+        addProductShoppingCart(productCart)
+
+    }
+
     return (
         
 
@@ -38,7 +55,14 @@ const ItemDetail = ({product}) => {
                             <h4 className="price">Precio: <span>${product.price}</span></h4>
                             <h6 className="price">Stock: <span>{product.stock}</span></h6>
                             <div className="action">
-                                <ItemCount initial={product.stock > 0 ? 1 : 0} stock={product.stock} onAdd={(quantity) => console.log("Cantidad agregada", quantity)}/>
+                                {
+                                    quantityAdd > 0 ? (
+                                        <ItemFinish />
+                                    ) : (
+                                        <ItemCount initial={product.stock > 0 ? 1 : 0} stock={product.stock} addProduct={addProduct}/>
+                                    )
+                                }
+                                
                             </div>
                         </div>
                     </div>
