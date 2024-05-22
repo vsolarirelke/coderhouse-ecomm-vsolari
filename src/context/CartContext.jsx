@@ -10,18 +10,37 @@ const CartProvider = ( {children} ) => {
     //Agregamos un producto al carro
     const addProductShoppingCart = (product) => {
         const productExists = shoppingCartFindProductId(product.id)
-        
+        console.log("*************")
+        console.log(product)
+        console.log("stock"+product.stock)
         if(productExists){
             //Producto existe, sumamos cantidad
             const productUpdate = shoppingCart.map( (productCart)  => {
                 if(productCart.id === product.id){
-                    return { ...productCart, quantity: productCart.quantity + product.quantity, price_sale: (productCart.quantity + product.quantity)*product.price }
+                    
+                    const sum_quantity = productCart.quantity + product.quantity
+                    console.log("sum_quantity:"+sum_quantity)
+                    console.log("productCart.stock:"+productCart.stock)
+                    if(sum_quantity > productCart.stock){
+                        //return alert("Producto excede stock")
+                        return { ...productCart, outOfStock: true}
+                    }else{
+                        return { ...productCart, quantity: productCart.quantity + product.quantity, price_sale: (productCart.quantity + product.quantity)*product.price }
+                    }
+
                 }else{
                     productCart
                 }
             })
-
-            setShoppingCart(productUpdate)
+            console.log("productUpdate....")
+            console.log(productUpdate)
+            if (productUpdate[0].outOfStock){
+                console.log("producto sin stock")
+                return alert("Producto excede stock")
+            }else{
+                setShoppingCart(productUpdate)
+            }
+            
         }else{
             //Producto nuevo en cartito
             setShoppingCart([ ...shoppingCart, product])
