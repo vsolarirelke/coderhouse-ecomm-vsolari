@@ -23,22 +23,24 @@ const CartProvider = ( {children} ) => {
                     console.log("productCart.stock:"+productCart.stock)
                     if(sum_quantity > productCart.stock){
                         //return alert("Producto excede stock")
-                        return { ...productCart, outOfStock: true}
+                        return { product: { ...productCart}, outOfStock: true}
                     }else{
-                        return { ...productCart, quantity: productCart.quantity + product.quantity, price_sale: (productCart.quantity + product.quantity)*product.price }
+                        return { product: { ...productCart, quantity: productCart.quantity + product.quantity, price_sale: (productCart.quantity + product.quantity)*product.price }, outOfStock: false}
                     }
 
                 }else{
-                    productCart
+                    return { product: {productCart}, outOfStock: false}
                 }
             })
             console.log("productUpdate....")
             console.log(productUpdate)
-            if (productUpdate[0].outOfStock){
+            console.log(productUpdate[0].product)
+            if (productUpdate[0].outOfStock === true){
+            //if (stock){
                 console.log("producto sin stock")
                 return alert("Producto excede stock")
             }else{
-                setShoppingCart(productUpdate)
+                setShoppingCart([productUpdate[0].product])
             }
             
         }else{
