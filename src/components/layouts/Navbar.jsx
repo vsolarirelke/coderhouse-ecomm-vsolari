@@ -10,9 +10,18 @@ const Navbar = () => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        getCategories()
+
+        const sessionData = sessionStorage.getItem('ssCategories');
+        console.log("**********sessionData:"+sessionData)
+        if(sessionData){
+            console.log("ssCategories EXISTE")
+            setCategories(JSON.parse(sessionData))
+        }else{
+            console.log("ssCategories NO EXISTE")
+            getCategories()
             .then(response => {
                 setCategories(response)
+                sessionStorage.setItem('ssCategories', JSON.stringify(response));
             })
             .catch(error => {
                 console.log(`Navbar - error: ${error}`)
@@ -21,7 +30,9 @@ const Navbar = () => {
             .finally(() => {
                 console.log("Navbar - finally")
             })
-    })
+        }
+        
+    }, [])
 
     return (
         <header>

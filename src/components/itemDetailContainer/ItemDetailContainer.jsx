@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { getProductById } from '../../services/fetchers/fetchProducts';
 import ItemDetail from '../itemDetail/ItemDetail';
 import ItemDetailContainerLoader from './ItemDetailContainerLoader';
+import ElementEmpty from '../elementEmpty/ElementEmpty';
+// import ItemDetailNotFound from '../ItemDetailNotFound/ItemDetailNotFound';
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
@@ -10,6 +12,7 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
     const {productId} = useParams()
     const [loading, setLoading] = useState(true)
+    const [productExists, setProductExists] = useState(true)
 
     useEffect(() => {
         setLoading(true)
@@ -19,7 +22,13 @@ const ItemDetailContainer = () => {
                 console.log(`ItemDetailContainer - then`)
                 console.log("productId:"+productId)
                 console.log("response:"+response)
-                setProduct(response)
+                console.log(JSON.stringify(response))
+                if(response.exists === true){
+                    setProduct(response)
+                }else{
+                    setProductExists(false)
+                }
+                
             })
             .catch(error => {
                 console.log(`ItemDetailContainer - error: ${error}`)
@@ -34,7 +43,7 @@ const ItemDetailContainer = () => {
     return (
         <div className="item-detail-container">
             {productId !== null && productId != undefined && (
-                loading ? <ItemDetailContainerLoader /> :  <ItemDetail product={product} />   
+                loading ? <ItemDetailContainerLoader /> : ( productExists ? <ItemDetail product={product} /> : <ElementEmpty type={"product"} /> )
             )}  
         </div>
     )

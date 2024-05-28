@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import CartItem from "../cartItem/CartItem"
-import CartEmpty from "../cartEmpty/CartEmpty";
+import ElementEmpty from "../elementEmpty/ElementEmpty";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import './Cart.css'
 
@@ -12,7 +12,7 @@ const Cart = () => {
 
     if (shoppingCart.length === 0){
         return(
-            <CartEmpty/>
+            <ElementEmpty type={"cart"}/>
         )
     }
 
