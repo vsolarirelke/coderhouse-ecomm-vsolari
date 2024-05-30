@@ -6,6 +6,7 @@ import ItemDetailContainer from './components/itemDetailContainer/ItemDetailCont
 import Cart from './components/cart/Cart.jsx';
 import { CartProvider } from './context/CartContext.jsx';
 import Footer from './components/layouts/Footer.jsx';
+import ElementEmpty from './components/elementEmpty/ElementEmpty.jsx'
 import './App.css'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/item/:productId" element={<ItemDetailContainer />}/>
             <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<h1>404 NOT FOUND</h1>}/>
+            {/* <Route path="*" component={<ElementEmpty />} /> */}
           </Routes>
         </CartProvider>
       </BrowserRouter>

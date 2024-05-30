@@ -21,7 +21,8 @@ const Navbar = () => {
             getCategories()
             .then(response => {
                 setCategories(response)
-                sessionStorage.setItem('ssCategories', JSON.stringify(response));
+                //sessionStorage.setItem('ssCategories', JSON.stringify(response));
+                sessionStorage.setItem('ssCategories', JSON.stringify([...response, {id: "prueba", name:""}]));
             })
             .catch(error => {
                 console.log(`Navbar - error: ${error}`)
