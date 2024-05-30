@@ -11,7 +11,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  
   return (
     <div className="App d-flex flex-column">
 
@@ -24,8 +24,8 @@ function App() {
             <Route path="/category/:categoryId" element={<ItemListContainer greeting={""} />}/>
             <Route path="/item/:productId" element={<ItemDetailContainer />}/>
             <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<h1>404 NOT FOUND</h1>}/>
-            {/* <Route path="*" component={<ElementEmpty />} /> */}
+            {/* <Route path="*" element={<h1>404 NOT FOUND</h1>}/> */}
+            <Route path="*" component={<ElementEmpty />} />
           </Routes>
         </CartProvider>
       </BrowserRouter>
