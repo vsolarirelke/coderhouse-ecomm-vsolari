@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import CartItem from "../cartItem/CartItem"
 import ElementEmpty from "../elementEmpty/ElementEmpty";
+import { Link } from "react-router-dom";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import './Cart.css'
 
@@ -47,11 +48,17 @@ const Cart = () => {
                         </tr>
                     </tfoot>
                 </table>
-                <center>
-                    <a onClick={ resetShoppingCart } className="btn btn-reset-shopping-cart" >
-                        <BsFillTrash3Fill size={20} /> Vaciar Carro
-                    </a>
-                </center>
+                
+                <div className="row">
+                    <div className="col-9">
+                        <a onClick={ resetShoppingCart } className="btn btn-reset-shopping-cart" >
+                            <BsFillTrash3Fill size={20} /> Vaciar Carro
+                        </a>
+                    </div>
+                    <div className="col-3 mt-2">
+                        <Link to="/checkout" className="add-to-cart">Finalizar compra</Link>
+                    </div>
+                </div>
             </div>  
         </div>
     )

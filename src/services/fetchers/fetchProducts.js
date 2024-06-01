@@ -1,4 +1,3 @@
-import products from '../../models/Products';
 import {collection, doc, getDoc, getDocs, query, where} from "firebase/firestore"
 import db from '../../db/db';
 
@@ -125,47 +124,47 @@ const getProductById = (idProduct) => {
 }
 
 //Trate crea un producto
-const createProduct = (newProduct) => {
-    // return fetch("http://localhost:8080/api/productos", {
-    //     method: "POST",
-    //     headers: {
-    //         'Content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify(newProduct)
-    // })
-    // .then((respuesta) => {
-    //     return respuesta.json()
-    // })
-    return new Promise((resolve, reject) => {
-        //simulamos un retraso de red
-        setTimeout(() => {
-          resolve(products.push(newProduct))
-        }, 2000);
-    });
-}
+// const createProduct = (newProduct) => {
+//     // return fetch("http://localhost:8080/api/productos", {
+//     //     method: "POST",
+//     //     headers: {
+//     //         'Content-type': 'application/json'
+//     //     },
+//     //     body: JSON.stringify(newProduct)
+//     // })
+//     // .then((respuesta) => {
+//     //     return respuesta.json()
+//     // })
+//     return new Promise((resolve, reject) => {
+//         //simulamos un retraso de red
+//         setTimeout(() => {
+//           resolve(products.push(newProduct))
+//         }, 2000);
+//     });
+// }
   
-const updateProductById = (idProduct, mod) => {
-    return fetch(`http://localhost:8080/api/productos/${idProduct}`, {
-        method: "PUT",
-        headers: {
-        'Content-type': 'application/json'
+// const updateProductById = (idProduct, mod) => {
+//     return fetch(`http://localhost:8080/api/productos/${idProduct}`, {
+//         method: "PUT",
+//         headers: {
+//         'Content-type': 'application/json'
         
-        },
-        body: JSON.stringify(mod)
-    })
-    .then((respuesta) => {
-        return respuesta.json()
-    })
-}
+//         },
+//         body: JSON.stringify(mod)
+//     })
+//     .then((respuesta) => {
+//         return respuesta.json()
+//     })
+// }
   
-const destroyProductById = (idProduct) => {
-    return fetch(`http://localhost:8080/api/productos/${idProduct}`, {
-        method: "DELETE"
-    })
-    .then((respuesta) => {
-        return respuesta.json()
-    })
-}
+// const destroyProductById = (idProduct) => {
+//     return fetch(`http://localhost:8080/api/productos/${idProduct}`, {
+//         method: "DELETE"
+//     })
+//     .then((respuesta) => {
+//         return respuesta.json()
+//     })
+// }
   
   
-export { getProducts, getProductById, getProductsByCategory, createProduct, updateProductById, destroyProductById }
+export { getProducts, getProductById, getProductsByCategory}
