@@ -4,6 +4,10 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { createOrder } from "../../services/fetchers/fetchOrders";
 import { Timestamp } from "firebase/firestore";
+import { FaApple } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import validateForm from "./validations/CheckoutFormValid";
+import { toast } from "react-toastify";
 
 // import validateForm from "../../utils/validationYup.js";
 // import { toast } from "react-toastify";
@@ -13,9 +17,17 @@ import { Timestamp } from "firebase/firestore";
 const Checkout = () => {
   
  const [dataForm, setDataForm] = useState({
-    name: "",
-    phone: "",
+    firstName: "",
+    lastName: "",
     email: "",
+    emailVerify: "",
+    address: "",
+    codePostal: "",
+    paymentMethod: "",
+    ccName: "",
+    ccNumber: "",
+    ccExpiration: "",
+    ccCvv: ""
   });
 
   const [idOrder, setIdOrder] = useState(null);
@@ -36,14 +48,10 @@ const Checkout = () => {
     };
     try {
       //Validamos formulario
-    //   const response = await validateForm(dataForm)
-    //   if(response.status === "success"){
-    //     //generateOrder(orden);
-    //     alert("formulario ok")
-    //   }else{
-    //     toast.warning(response.message)
-    //   }
-        
+      const response = await validateForm(dataForm)
+      console.log("RESPONSE", response)
+      if(response.status === "success"){
+        //generateOrder(orden);
         const result = await createOrder(order)
         if (result.status === import.meta.VITE_STATUS_SUCCESS){
             setIdOrder(result.id)
@@ -51,6 +59,10 @@ const Checkout = () => {
         }
         console.log("********* checkut ******")
         console.log("result", result.id)
+      }else{
+        toast.warning(response.message)
+      }
+        
     } catch (error) {
       console.log(error)
     }
@@ -88,9 +100,20 @@ const Checkout = () => {
   return (
     <div className="checkout">
       {idOrder ? (
-        <div className="order-generated">
-          <h2>Orden generada con exito!🤩</h2>
-          <p> guarde el id de su orden: {idOrder} </p>
+        <div className="cart-container">
+            <div className="container">
+                <div className="py-1 text-center">
+                    <FaApple className="font-size-50"/>
+                    <h3>Compra realizada con exito!</h3>
+                    <br/>
+                    <br/>
+                    <p>Guarde el id de su orden:  </p>
+                    <h3>{idOrder}</h3>
+                    <br/>
+                    <br/>
+                    <Link to='/' className="add-to-cart" >Seguir comprando</Link>
+                </div>
+            </div>
         </div>
       ) : (
         <CheckoutForm

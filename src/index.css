@@ -53,3 +53,7 @@ body{
 .add-to-cart:disabled{
   cursor:no-drop;
 }
+
+.font-size-50{
+  font-size: 50px;
+}

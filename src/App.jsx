@@ -8,7 +8,10 @@ import { CartProvider } from './context/CartContext.jsx';
 import Footer from './components/layouts/Footer.jsx';
 import ElementEmpty from './components/elementEmpty/ElementEmpty.jsx'
 import Checkout from './components/checkout/Checkout.jsx'
+import { ToastContainer } from "react-toastify";
+
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +23,19 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <Navbar/>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition: Bounce
+            />
           <Routes>
             <Route path="/" element={<ItemListContainer greeting={"Bienvenidos!"} />}/>
             <Route path="/category/:categoryId" element={<ItemListContainer greeting={""} />}/>
