@@ -11,31 +11,22 @@ const ItemListContainer = ( {greeting} ) => {
 
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    const {categoryId} = useParams()
+    const {categoryName} = useParams()
     const [categoryExists, setCategoryExists] = useState(true)
 
     useEffect(() => {
         setLoading(true)
-        const callMethod = categoryId ?  getProductsByCategory : getProducts
-        callMethod(categoryId)
+        const callMethod = categoryName ?  getProductsByCategory : getProducts
+        callMethod(categoryName)
             .then(response => {
-                console.log(`ItemListContainer - then`)
-                console.log("categoryId:"+categoryId)
-                console.log("response:"+response)
-                console.log(JSON.stringify(response))
-                console.log(response.length)
-                console.log(categoryId)
-
-                if(categoryId === undefined || response.length > 0){
-                    console.log("ENTROOO PRODUCTOS O CATEGORIAS")
+                
+                if(categoryName === undefined || response.length > 0){
                     setProducts(response)
                     setCategoryExists(true)
                 }else{
-                    console.log("NO ENTRO")
                     setCategoryExists(false)
                 }
 
-                //setProducts(response)
             })
             .catch(error => {
                 console.log(`ItemListContainer - error: ${error}`)
@@ -45,12 +36,12 @@ const ItemListContainer = ( {greeting} ) => {
                 console.log("ItemListContainer - finally")
                 setLoading(false)
             })
-    }, [categoryId])
+    }, [categoryName])
     
     return (
         <div className="item-list-container">
         
-            {categoryId === null || categoryId === undefined && (
+            {categoryName === null || categoryName === undefined && (
                 <div className="d-flex justify-content-center align-self-center">
                     <h1>{greeting}</h1>
                 </div>
@@ -59,8 +50,7 @@ const ItemListContainer = ( {greeting} ) => {
             {
                 loading ? <ItemListContainerLoader /> : ( categoryExists ? <ItemList products={products} /> : <ElementEmpty type={"category"} /> )
             }
-            
-                 
+                
         </div>
     )
 }

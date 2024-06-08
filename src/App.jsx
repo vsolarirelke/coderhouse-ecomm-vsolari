@@ -38,16 +38,16 @@ function App() {
             />
           <Routes>
             <Route path="/" element={<ItemListContainer greeting={"Bienvenidos!"} />}/>
-            <Route path="/category/:categoryId" element={<ItemListContainer greeting={""} />}/>
+            <Route path="/category/:categoryName" element={<ItemListContainer greeting={""} />}/>
             <Route path="/item/:productId" element={<ItemDetailContainer />}/>
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout/> } />
             <Route path="*" component={<ElementEmpty />} />
           </Routes>
+          <Footer/>
         </CartProvider>
       </BrowserRouter>
       
-      <Footer/>
     </div>
   )
 }

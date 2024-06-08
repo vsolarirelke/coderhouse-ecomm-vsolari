@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BsFillTrash3Fill } from "react-icons/bs";
 
 const CartItem = ({product, index, removeProductShoppingCart}) => {
-//Se deja esta linea ya que la ppt solicita de esta forma, pero ambas son funciones
-//function Item ( {product} ) {
 
     const imgUrl = new URL(`../item/assets/${product.pictureUrl}`, import.meta.url).href
-    console.log(imgUrl)
+    
     return (
         <tr>
             <th scope="row">{index}</th>
-            <td><img src={ imgUrl } className="" width={40} height={40} /></td>
+            <td>
+                
+                <Link to={`/item/${product.id}`}><img src={ imgUrl } className="" width={40} height={40} /></Link>
+            </td>
             <td>{product.title}</td>
             <td>$ {product.price}</td>
             <td>x {product.quantity}</td>

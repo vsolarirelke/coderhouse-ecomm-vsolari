@@ -19,28 +19,20 @@ const getProducts = () => {
     //   });
 
     //Llamada a firebase
-    console.log("fetchProducts.getProducts")
     const productsCollection = collection(db, "products")
     const result = getDocs(productsCollection)
         .then((productsDb) => {
-            console.log(productsDb)
             const data = productsDb.docs.map( (product)=>  {
                 return {id: product.id, ...product.data() }
             })
-            console.log("*****DATA****")
-            console.log(data)
             return data
         })
-    console.log("*****result")
-    console.log(result)
-    
     return result
      
   }
 
 //Trate todos los productos de una Categoria
-const getProductsByCategory = (idCategory) => {
-    console.log("idCategory***:"+idCategory)
+const getProductsByCategory = (nameCategory) => {
     //LLAMADA A MODEL
     // return new Promise((resolve, reject) => {
     //     //simulamos un retraso de red
@@ -53,44 +45,28 @@ const getProductsByCategory = (idCategory) => {
     //     };
     //   });
 
-    console.log("fetchProducts.getProductsByCategory")
     const productsCollection = collection(db, "products")
-    const q = query(productsCollection, where("category_id", "==", idCategory));
+
+    const q = query(productsCollection, where("category", "==", nameCategory));
     const result = getDocs(q)
         .then((productsDb) => {
-            console.log(productsDb)
             const data = productsDb.docs.map( (product)=>  {
                 return {id: product.id, ...product.data() }
             })
-            console.log("*****DATA****")
-            console.log(data)
             return data
         })
 
-    // const result = getDocs(productsCollection)
-    //     .then((productsDb) => {
-    //         console.log(productsDb)
-    //         const data = productsDb.docs.map( (product)=>  {
-    //             return {id: product.id, ...product.data() }
-    //         })
-    //         console.log("*****DATA****")
-    //         console.log(data)
-    //         return data
-    //     })
-    console.log("*****result")
-    console.log(result)
     return result
   }
 
 //Trate un producto segun su id
 const getProductById = (idProduct) => {
-    console.log("fetchProducts.getProductById")
     // return fetch(`http://localhost:8080/api/productos/${idProduct}`)
     // .then((respuesta) => {
     //     return respuesta.json()
     // })
     //console.log(products)
-    console.log(idProduct)
+    //console.log(idProduct)
     //llamada a Model/products.js
     // return new Promise((resolve, reject) => {
     //     //simulamos un retraso de red
@@ -113,12 +89,8 @@ const getProductById = (idProduct) => {
             }
 
             const data = {id: productDb.id, ...productDb.data(), exists: exists }
-            console.log("*****DATA****")
-            console.log(data)
             return data
         })
-    console.log("*****result")
-    console.log(result)
     
     return result
 }

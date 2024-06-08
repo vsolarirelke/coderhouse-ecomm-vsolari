@@ -1,29 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createContext } from "react";
 
 const CartContext = createContext()
 
 const CartProvider = ( {children} ) => {
 
-    const [shoppingCart, setShoppingCart] = useState([])
+    const ssShoppingCart = JSON.parse(sessionStorage.getItem('ssShoppingCart')) || []
+    const [shoppingCart, setShoppingCart] = useState(ssShoppingCart)
+    
+    useEffect(() => {
+        sessionStorage.setItem('ssShoppingCart', JSON.stringify(shoppingCart));
+    }, [shoppingCart]);
     
     //Agregamos un producto al carro
     const addProductShoppingCart = (product) => {
         const productExists = shoppingCartFindProductId(product.id)
-        console.log("*************")
-        console.log(product)
-        console.log("stock"+product.stock)
+        
         if(productExists){
             //Producto existe, sumamos cantidad
             const productUpdate = shoppingCart.map( (productCart)  => {
                 if(productCart.id === product.id){
-                    
                     const sum_quantity = productCart.quantity + product.quantity
-                    console.log("sum_quantity:"+sum_quantity)
-                    console.log("productCart.stock:"+productCart.stock)
                     if(sum_quantity > productCart.stock){
-                        //return alert("Producto excede stock")
-                        return { product: { ...productCart}, outOfStock: true}
+                        const stockSuggested = productCart.stock-productCart.quantity
+                        if(stockSuggested > 0){
+                            return { product: { ...productCart, quantity: productCart.quantity + stockSuggested, price_sale: (productCart.quantity + stockSuggested)*product.price }, outOfStock: false}
+                        }else{
+                            return { product: { ...productCart}, outOfStock: true, stockSuggested: stockSuggested }
+                        }
+                            
                     }else{
                         return { product: { ...productCart, quantity: productCart.quantity + product.quantity, price_sale: (productCart.quantity + product.quantity)*product.price }, outOfStock: false}
                     }
@@ -32,13 +37,9 @@ const CartProvider = ( {children} ) => {
                     return { product: {productCart}, outOfStock: false}
                 }
             })
-            console.log("productUpdate....")
-            console.log(productUpdate)
-            console.log(productUpdate[0].product)
+            
             if (productUpdate[0].outOfStock === true){
-            //if (stock){
-                console.log("producto sin stock")
-                return alert("Producto excede stock")
+                return { status: import.meta.env.VITE_STATUS_ERROR, error: "No existe stock disponible", stockSuggested: productUpdate[0].stockSuggested }
             }else{
                 setShoppingCart([productUpdate[0].product])
             }
@@ -47,6 +48,8 @@ const CartProvider = ( {children} ) => {
             //Producto nuevo en cartito
             setShoppingCart([ ...shoppingCart, product])
         }
+
+        return { status: import.meta.env.VITE_STATUS_SUCCESS }
     }
 
     //Busca un procuto en el carro
@@ -75,8 +78,6 @@ const CartProvider = ( {children} ) => {
         const othersProducts = shoppingCart.filter( (productCart) => productCart.id !== productId )
         setShoppingCart(othersProducts)
     }
-    addProductShoppingCart
-    
 
     return(
         <CartContext.Provider value={ { shoppingCart, addProductShoppingCart, removeProductShoppingCart, totalQuantityShoppingCart, totalPriceShoppingCart, resetShoppingCart} }> 

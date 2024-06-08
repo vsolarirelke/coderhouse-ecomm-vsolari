@@ -1,7 +1,7 @@
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
-
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer className="footer mt-auto py-3 bg-light">
@@ -13,9 +13,15 @@ const Footer = () => {
                     <span className="col-md-10 text-body-secondary">© {new Date().getFullYear()} Apple Store Ltda. {import.meta.env.VITE_NUM_VERSION}</span>
                 
                     <ul className="nav col-md-12 justify-content-end list-unstyled d-flex">
-                        <li className="ms-3"><a className="text-body-secondary" href="#"><FaSquareXTwitter /></a></li>
-                        <li className="ms-3"><a className="text-body-secondary" href="#"><FaFacebook/></a></li>
-                        <li className="ms-3"><a className="text-body-secondary" href="#"><FaInstagram/></a></li>
+                        <li className="ms-3">
+                            <Link to={'https://www.twitter.com'} target="_blank" className="text-body-secondary"><FaSquareXTwitter/></Link>
+                        </li>
+                        <li className="ms-3">
+                            <Link to={'https://www.facebook.com'} target="_blank" className="text-body-secondary"><FaFacebook/></Link>
+                        </li>
+                        <li className="ms-3">
+                            <Link to={'https://www.instagram.com'} target="_blank" className="text-body-secondary"><FaInstagram/></Link>
+                        </li>
                     </ul>
                 </div>
             </div>

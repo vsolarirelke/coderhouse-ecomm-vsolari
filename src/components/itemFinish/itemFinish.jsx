@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
-const ItemFinish = ( {stock, initial, addProduct } ) => {
+const ItemFinish = () => {
     
-
     return (
         <>
             <div className="row pt-10 justify-content-md-center">

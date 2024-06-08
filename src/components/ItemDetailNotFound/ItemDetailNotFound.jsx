@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import './ItemDetailNotFound.css'
 
-
-
 const ElementEmpty = () => {
 
     const imgUrl = new URL(`./assets/bag_empty.png`, import.meta.url).href

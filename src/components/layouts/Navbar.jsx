@@ -9,26 +9,22 @@ const Navbar = () => {
 
     const [categories, setCategories] = useState([])
 
-    useEffect(() => {
+    useEffect(  () => {
 
         const sessionData = sessionStorage.getItem('ssCategories');
-        console.log("**********sessionData:"+sessionData)
         if(sessionData){
-            console.log("ssCategories EXISTE")
             setCategories(JSON.parse(sessionData))
         }else{
-            console.log("ssCategories NO EXISTE")
             getCategories()
             .then(response => {
                 setCategories(response)
                 sessionStorage.setItem('ssCategories', JSON.stringify(response));
             })
             .catch(error => {
-                console.log(`Navbar - error: ${error}`)
                 console.error(error)
             })
             .finally(() => {
-                console.log("Navbar - finally")
+                console.error("Navbar - finally")
             })
         }
         
@@ -46,8 +42,7 @@ const Navbar = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         {categories.map( category => 
                             <li key={"li_category_"+category.id} className="nav-item">
-                                {/* <a key={"category_"+category.id} className="nav-link active" href="#">{category.name}</a> */}
-                                <NavLink to={`/category/${category.id}`} className="nav-link active">{category.name}</NavLink>
+                                <NavLink to={`/category/${category.name}`} className="nav-link active">{category.name}</NavLink>
                             </li>
                         )}
                         </ul>

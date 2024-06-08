@@ -4,7 +4,6 @@ import { getProductById } from '../../services/fetchers/fetchProducts';
 import ItemDetail from '../itemDetail/ItemDetail';
 import ItemDetailContainerLoader from './ItemDetailContainerLoader';
 import ElementEmpty from '../elementEmpty/ElementEmpty';
-// import ItemDetailNotFound from '../ItemDetailNotFound/ItemDetailNotFound';
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
@@ -19,10 +18,6 @@ const ItemDetailContainer = () => {
         const callMethod = getProductById
         callMethod(productId)
             .then(response => {
-                console.log(`ItemDetailContainer - then`)
-                console.log("productId:"+productId)
-                console.log("response:"+response)
-                console.log(JSON.stringify(response))
                 if(response.exists === true){
                     setProduct(response)
                 }else{
@@ -31,11 +26,9 @@ const ItemDetailContainer = () => {
                 
             })
             .catch(error => {
-                console.log(`ItemDetailContainer - error: ${error}`)
                 console.error(error)
             })
             .finally(() => {
-                console.log("ItemDetailContainer - finally")
                 setLoading(false)
             })
     }, [productId] )

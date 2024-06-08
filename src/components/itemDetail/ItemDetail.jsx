@@ -6,6 +6,7 @@ import ItemBreadcrumb from '../itemBreadcrumb/ItemBreadcrumb';
 import { CartContext } from "../../context/CartContext";
 import './ItemDetail.css'
 import ItemFinish from '../itemFinish/itemFinish';
+import { toast } from "react-toastify";
 
 const ItemDetail = ({product}) => {
 
@@ -21,17 +22,19 @@ const ItemDetail = ({product}) => {
     
     const addProduct = (quantity) => {
         const productCart ={ ...product, quantity: quantity, price_sale: quantity*product.price}
-        console.log(productCart)
-        setQuantityAdd(quantity)
-        addProductShoppingCart(productCart)
-
+        
+        const result = addProductShoppingCart(productCart)
+        if(result.status !== import.meta.env.VITE_STATUS_SUCCESS){
+            toast.warning(result.error)
+            setQuantityAdd(1)
+        }else{
+            setQuantityAdd(quantity)
+        }
     }
 
     return (
-        
-
         <div className="container">
-            <ItemBreadcrumb category_id={product.category_id} category_name={product.category} product_title={product.title}/>
+            <ItemBreadcrumb category_name={product.category} product_title={product.title}/>
             <div className="card">
                 <div className="container-fliud">
                     <div className="wrapper row">

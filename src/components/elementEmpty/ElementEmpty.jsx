@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import './ElementEmpty.css'
 
-
-
 const ElementEmpty = (type) => {
 
     const imgUrl = new URL(`./assets/bag_empty.png`, import.meta.url).href
-    console.log("********TYPE: "+JSON.stringify(type))
     return (
         <div className="cart-container">
             <div className="container">
