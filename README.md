@@ -168,6 +168,18 @@ Enlace Proyecto: [https://github.com/vsolarirelke/coderhouse-ecomm-vsolari](http
 
 <p align="right">(<a href="#readme-top">Ir arriba</a>)</p>
 
+## Dependencias
+`React`
+`Firebase`
+`Yup`
+`Bootstrap`
+`React-content-loader`
+`React-icons`
+`React-router-dom`
+`React-toastify`
+`Vite`
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -180,3 +192,13 @@ Enlace Proyecto: [https://github.com/vsolarirelke/coderhouse-ecomm-vsolari](http
 [Bootstrap-url]: https://getbootstrap.com
 [Vite.com]: https://img.shields.io/badge/logo-compilacion-blue?logo=vite&logoColor=white
 [Vite-url]: https://vitejs.dev/
+
+[bootstrap]: https://getbootstrap.com
+[firebase]: https://firebase.google.com/
+[react]: https://es.react.dev/
+[react-content-loader]: https://github.com/danilowoz/react-content-loader
+[react-icons]: https://react-icons.github.io/react-icons/
+[react-router-dom]: https://reactrouter.com/
+[react-toastify]: https://github.com/fkhadra/react-toastify
+[yup]: https://github.com/jquense/yup
+[Vite]: https://vitejs.dev/

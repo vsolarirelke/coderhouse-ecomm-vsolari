@@ -29,11 +29,9 @@ const ItemListContainer = ( {greeting} ) => {
 
             })
             .catch(error => {
-                console.log(`ItemListContainer - error: ${error}`)
                 console.error(error)
             })
             .finally(() => {
-                console.log("ItemListContainer - finally")
                 setLoading(false)
             })
     }, [categoryName])
