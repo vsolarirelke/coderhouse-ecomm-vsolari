@@ -95,7 +95,7 @@ const getProductById = (idProduct) => {
     return result
 }
 
-//Trate crea un producto
+//Trate crea un producto queda comentado para abordar en un futuro, se probo con API
 // const createProduct = (newProduct) => {
 //     // return fetch("http://localhost:8080/api/productos", {
 //     //     method: "POST",

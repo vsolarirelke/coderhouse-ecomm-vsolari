@@ -119,7 +119,7 @@ const CheckoutForm = ({ dataForm, handleChangeInput, handleSubmitForm }) => {
 
                             <hr className="my-4"/>
 
-                            <button className="w-100 btn btn-primary btn-lg" type="submit">Finalizar compra</button>
+                            <button className="w-100 btn btn-primary btn-lg" type="submit">Realizar compra</button>
                         </form>
                     </div>
                 </div>

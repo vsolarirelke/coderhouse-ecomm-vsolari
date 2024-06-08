@@ -56,7 +56,7 @@ const Cart = () => {
                         </a>
                     </div>
                     <div className="col-3 mt-2">
-                        <Link to="/checkout" className="add-to-cart">Finalizar compra</Link>
+                        <Link to="/checkout" className="add-to-cart">Realizar compra</Link>
                     </div>
                 </div>
             </div>  

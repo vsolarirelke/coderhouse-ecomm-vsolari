@@ -1,3 +1,4 @@
+//Se comenta la ejecucion de este seed por seguridad
 import db from "../db/db.js";
 import { addDoc, collection } from "firebase/firestore";
 import products from '../models/Products.js';

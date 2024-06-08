@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/layouts/Navbar.jsx';
 import ItemListContainer from './components/itemListContainer/ItemListContainer.jsx';
@@ -14,7 +13,6 @@ import './App.css'
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [count, setCount] = useState(0)
   
   return (
     <div className="App d-flex flex-column">
@@ -37,7 +35,7 @@ function App() {
             transition: Bounce
             />
           <Routes>
-            <Route path="/" element={<ItemListContainer greeting={"Bienvenidos!"} />}/>
+            <Route path="/" element={<ItemListContainer greeting={"Bienvenidos Martin!"} />}/>
             <Route path="/category/:categoryName" element={<ItemListContainer greeting={""} />}/>
             <Route path="/item/:productId" element={<ItemDetailContainer />}/>
             <Route path="/cart" element={<Cart />} />

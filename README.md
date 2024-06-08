@@ -58,7 +58,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://incomparable-kheer-1a8e09.netlify.app)
 
-El siguiente proyecto es un ejemplo de un Ecommerce que muestra categorias, productos, imagenes, adicionalmente  pueden ser incorporados a un carrito de compra.
+El siguiente proyecto es un ejemplo de un Ecommerce que contempla categorias, productos, imagenes y carrito de compra.
 
 <p align="right">(<a href="#readme-top">Ir arriba</a>)</p>
 
@@ -71,7 +71,7 @@ A continuación se listan las principales tecnologias utilizadas.
 * [![React][React.js]][React-url]
 * [![Vitejs][Vite.com]][Vite-url]
 * [![Bootstrap5][Bootstrap.com]][Bootstrap-url]
-
+* [![Firebase][Firebase.com]][Firebase-url]
 
 <p align="right">(<a href="#readme-top">Ir arriba</a>)</p>
 
@@ -149,7 +149,46 @@ A continuación se muestra un ejemplo de como descargar el proyecto e iniciarlo 
     - [x] ItemList.js Es un agrupador de un set de componentes Item.js (Deberías incluirlo dentro de ItemListContainer de la primera pre-entrega del Proyecto Final)
     - [x] Implementa un async mock (promise): Usa un efecto de montaje para poder emitir un llamado asincrónico a un mock (objeto) estático de datos que devuelva un conjunto de item { id, title, description, price, pictureUrl } en dos segundos (setTimeout), para emular retrasos de red.
 
-- [ ] Entrega Final
+- [x] Entrega Final
+  - [x] Un usuario debe poder ingresar, navegar por los productos e ir a sus detalles.
+  - [x] Desde el detalle se debe poder ver la descripción, foto y precio e ingresarlo al carrito.
+  - [x] Una vez que el carrito tenga al menos un producto, se deberá visualizar un listado compacto de la orden con el precio total.
+  - [x] Al ingresar su nombre, apellido, teléfono e e-mail (ingresándolo dos veces para corroborar que sea correcto), debe activarse el botón de ‘realizar compra’.
+  - [x] Al clickear ‘realizar compra’ debe guardarse en la base de datos una orden que tenga todos los productos, la fecha y dar feedback del número de orden.
+Los requisitos base serán parte de los criterios de evaluación para aprobar el proyecto.
+React Js - Proyecto Final
+- [x] Inicio: Al momento de ingresar a la app en la ruta base ‘/’
+  - [x] Visualizar -como mínimo- un set de productos disponibles para la compra.
+  - [x] Contar con algún acceso visible a la vista de carrito que debe alojarse en el route /cart.
+  - [x] Acceder a un menú desplegable que contendrá las categorías. Al clickear en una, debe navegar a la lista de productos de la misma
+    mediante un route /categories/:categoryId. Éste invocará la misma vista que el home, pero visualizando sólamente productos de esa categoría.
+- [x] Flow: Al clickear un ítem del listado debe navegar a la ruta /item/:id, donde id es el id del item (generado por firebase), y ver la descripción del producto (foto, precio, selector de cantidad). Si se ingresa a /item/:id y el producto no existe en firebase, debemos responder un mensaje adecuado que indique algo relacionado a que el producto no existe.
+- [x] Firebase:
+  - [x] items: catálogo completo
+      - [x] Link para foto (puede almacenarse de modo estático en la página en una subruta /assets/:itemid )
+      - [x] Precio unitario
+      - [x] Descripción (sólo se ve en detalle)
+      - [x] Categoria (id a mano para versión estática, o id de firebase para versión dinámica -opcional-)
+  - [x] orders: las órdenes generadas, que deben incluir los productos, descripciones y los precios al momento de la compra.
+      - [x] Las órdenes deben poder tener items surtidos, cada uno con su cantidad. Por ejemplo: remeras x 2 y gorra x 1
+      - [x] id, items, fecha, estado ( por defecto en ‘generada’)
+  - [x] categories (solo para versión dinámica -opcional-):
+      - [x] Versión dinámica (-opcional-): Crear una colección de categories en firebase para hidratar el menú y usar los id’s de éstos para linkearlos a sus ítems. Idealmente, categories/:id debería tener una descripción {id: ‘ad43k348j’, key: ‘calzado’, description: ‘Calzado’} para que quede /categories/calzado en lugar de /categories/ad43k348j
+      - [x] El cart debe ser accesible durante toda la experiencia y tener una indicación de la cantidad de items incluidos agregados (ej. si hay un ítem con dos unidades y un ítem con una unidad, debe decir ‘tres’).
+- [x] Checkout mínimo:
+  - [x] Items con sus cantidades
+  - [x] Total de la orden
+  - [x] Input para nombre, apellido y teléfono
+  - [x] Input para email y lógica de repetir el email 2 veces (a excepción de que realicen el desafío extra de auth, en ese caso no sería necesario)   
+- [x] Finalizada la orden, debo recibir mi order id con el id del objeto de firebase.
+- [x] La navegabilidad debe ocurrir utilizando el router, y no href’s o location.
+- [x] Por cada librería pública extra que utilices, deberás incluir en algún archivo el link al proyecto, y una justificación de por qué agrega valor.
+- [x] Readme.md: El archivo debe estar en el root del proyecto para dar una breve introducción acerca de su proyecto y qué ideas o enfoque eligió para el mismo. Si incluyó dependencias extra por npm (por fuera de las trabajadas en clase), aparte debe hacer un resumen explicando sus decisiones.
+
+Requisitos Extra
+- [x] Stock check: Validar stock al momento de intentar generar la order.
+- [x] Categories dinámicas: crear una colección de firebase para las categorías e hidratar el menú en base a eso.
+- [x] Cart persistente: Hacer que el cart sea persistente en alguna api de almacenamiento local en el navegador (local/session storage).
 
 Para visualizar el ultimo commit debe ingresar:
 
@@ -168,16 +207,16 @@ Enlace Proyecto: [https://github.com/vsolarirelke/coderhouse-ecomm-vsolari](http
 
 <p align="right">(<a href="#readme-top">Ir arriba</a>)</p>
 
-## Dependencias
-`React`
-`Firebase`
-`Yup`
-`Bootstrap`
-`React-content-loader`
-`React-icons`
-`React-router-dom`
-`React-toastify`
-`Vite`
+## Dependencies
+`React`: Biblioteca de JavaScript para construir interfaces de usuario interactivas y componentes reutilizables.
+`Firebase`: Plataforma de desarrollo de aplicaciones de Google que proporciona servicios backend como bases de datos en tiempo real, autenticación y alojamiento.
+`Yup`: Biblioteca de validación de esquemas en JavaScript que se usa para definir y validar la estructura y los datos de formularios.
+`Bootstrap`: Framework de código abierto para desarrollar sitios web y aplicaciones web responsivas y móviles, utilizando HTML, CSS y JavaScript.
+`React-content-loader`: Permite crear animaciones de contenido de carga (placeholders) personalizables para mejorar la experiencia del usuario mientras se cargan los datos.
+`React-icons`: Proporciona una colección de iconos populares y personalizables para su fácil integración en aplicaciones
+`React-router-dom`: Facilita la implementación de enrutamiento y navegación en aplicaciones web de una sola página (SPA)
+`React-toastify`: Permite mostrar notificaciones (ventanas emergentes) tipo "toast" de manera fácil y personalizable
+`Vite`: Herramienta de desarrollo rápida que sirve como un bundler y servidor de desarrollo para aplicaciones web basadas en JavaScript y TypeScript
 
 
 
@@ -192,6 +231,8 @@ Enlace Proyecto: [https://github.com/vsolarirelke/coderhouse-ecomm-vsolari](http
 [Bootstrap-url]: https://getbootstrap.com
 [Vite.com]: https://img.shields.io/badge/logo-compilacion-blue?logo=vite&logoColor=white
 [Vite-url]: https://vitejs.dev/
+[Firebase.com]: https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34
+[Firebase-url]: https://firebase.google.com
 
 [bootstrap]: https://getbootstrap.com
 [firebase]: https://firebase.google.com/
