@@ -35,7 +35,7 @@ function App() {
             transition: Bounce
             />
           <Routes>
-            <Route path="/" element={<ItemListContainer greeting={"Bienvenidos Martin!"} />}/>
+            <Route path="/" element={<ItemListContainer greeting={"Bienvenidos!"} />}/>
             <Route path="/category/:categoryName" element={<ItemListContainer greeting={""} />}/>
             <Route path="/item/:productId" element={<ItemDetailContainer />}/>
             <Route path="/cart" element={<Cart />} />
