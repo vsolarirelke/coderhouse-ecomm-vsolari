@@ -23,9 +23,6 @@ const Navbar = () => {
             .catch(error => {
                 console.error(error)
             })
-            .finally(() => {
-                console.error("Navbar - finally")
-            })
         }
         
     }, [])
